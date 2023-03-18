@@ -2,8 +2,8 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name "driveTag">
 <!ENTITY author "Peter Mee / MediaServer8">
-<!ENTITY version "2023.03.18b">
-<!ENTITY md5 "3629932f314bab467a2ac5e96debc979">
+<!ENTITY version "2023.03.18c">
+<!ENTITY md5 "b47bbeace9ebc68b4e0941a547195a9c">
 <!ENTITY launch "Settings/driveTag">
 <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
 <!ENTITY github "meehab/driveTag">
@@ -11,7 +11,7 @@
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;" icon="random" min="6.7.0" support="#">
 <CHANGES>
-###2023.03.18a
+###2023.03.18c
 - Fix settings page.
 
 ###2023.03.18a

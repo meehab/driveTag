@@ -2,7 +2,7 @@ Menu="Utilities"
 Type="xmenu"
 Title="driveTag"
 Icon="random"
-Tabs="false"
+Tabs="true"
 ---
 <?php include '/usr/local/emhttp/plugins/driveTag/scripts/styles.css';?>
 <?php
@@ -20,6 +20,6 @@ echo js_link("/plugins/driveTag/scripts/javascript.js");
 
 ?>
 <div class="desc">
-<b>Instructions:</b> This is the drivetag settings page.<br/><br/>
+<b>Instructions:</b> This is the driveTag settings page.<br/><br/>
 <i>Nothing here yet. Still lots to be done.</i>
 </div>
