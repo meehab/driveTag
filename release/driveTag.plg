@@ -2,8 +2,8 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name "driveTag">
 <!ENTITY author "Peter Mee / MediaServer8">
-<!ENTITY version "2023.03.18e">
-<!ENTITY md5 "c8c61d30c01a90de40b29e6221d92597">
+<!ENTITY version "2023.03.18f">
+<!ENTITY md5 "2e51b874077f8c4712c3c26abd970ca5">
 <!ENTITY launch "Settings/driveTag">
 <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
 <!ENTITY github "meehab/driveTag">
