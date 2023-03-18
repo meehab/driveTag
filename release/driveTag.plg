@@ -3,7 +3,7 @@
 <!ENTITY name "driveTag">
 <!ENTITY author "Peter Mee / MediaServer8">
 <!ENTITY version "2023.03.18a">
-<!ENTITY md5 "2966e9973ba82b5cb8272cd000fad1e4">
+<!ENTITY md5 "c6a4198f3e5efd187825cf2684de523d">
 <!ENTITY launch "Settings/driveTag">
 <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
 <!ENTITY github "meehab/driveTag">
