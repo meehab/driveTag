@@ -1,7 +1,6 @@
 Menu="Device New"
 Title="driveTag"
-Tag="address-card-o"
-Cond="strpos(_var($disks[$name],'status'),'_NP')===false"
+
 ---
 <?PHP
 /* Copyright 2005-2023, Lime Technology
