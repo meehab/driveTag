@@ -1,4 +1,105 @@
 Menu="Device New"
 Title="Drive Tag"
+Icon="pencil-square-o"
 ---
-<h1>EXAMPLE</h1>
+<?php
+$disks      = array_merge_recursive($disks, $devs);
+$thisDisk       = &$disks[$name] ?? [];
+
+?>
+
+<div class="desc">
+<b>Instructions:</b> Add a summary tag and any additional details for this disk.<br/><br/>
+<i>The Tag will be displayed in various places. The details will be shown here only.</i>
+</div>
+
+<div>DISK DETAILS:</div>
+
+<?php
+
+
+echo 'name: ';
+echo $name;
+echo '<br>';
+echo 'device: ';
+echo ($thisDisk['device']);
+echo '<br>';
+echo 'ID: ';
+echo ($thisDisk['id']);
+
+?>
+
+
+
+<?php
+// START CODE HERE
+$filePath = '/boot/config/plugins/driveTag/driveTag.cfg';
+
+// Create the XML file if it does not exist
+if (!file_exists($filePath)) {
+  $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><disks></disks>');
+  $xml->asXML($filePath);
+}
+
+// Load the XML file
+$xml = simplexml_load_file($filePath);
+
+// Get the diskid from the query string
+$diskid = $thisDisk;
+
+// Find the disk element in the XML file
+$diskElement = null;
+if (!empty($diskid)) {
+  $diskElements = $xml->xpath('/disks/disk[diskid="' . $diskid . '"]');
+  if (count($diskElements) > 0) {
+    $diskElement = $diskElements[0];
+  }
+}
+
+// Process form submission
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $postData = $_POST;
+
+  // Update the disk element with the form data
+  if (!empty($diskid)) {
+    if ($diskElement === null) {
+      // If the disk element does not exist, create a new one
+      $diskElement = $xml->addChild('disk');
+      $diskElement->addChild('diskid', $diskid);
+    }
+
+    $diskElement->name = $postData['name'];
+    $diskElement->device = $postData['device'];
+    $diskElement->tag = $postData['tag'];
+    $diskElement->memo = $postData['memo'];
+
+    // Save the XML file
+    $xml->asXML($filePath);
+  }
+}
+
+// Output the web form
+?>
+
+
+    <h1>Drive Tag Editor</h1>
+    <form method="POST">
+      <label for="diskid">Disk ID:</label>
+      <input type="text" name="diskid" value="<?php echo htmlspecialchars($diskid); ?>"<?php echo $diskElement === null ? '' : ' readonly'; ?>>
+      <br>
+      <label for="name">Name:</label>
+      <input type="text" name="name" value="<?php echo htmlspecialchars($diskElement->name ?? ''); ?>">
+      <br>
+      <label for="device">Device:</label>
+      <input type="text" name="device" value="<?php echo htmlspecialchars($diskElement->device ?? ''); ?>">
+      <br>
+      <label for="tag">Tag:</label>
+      <input type="text" name="tag" value="<?php echo htmlspecialchars($diskElement->tag ?? ''); ?>">
+      <br>
+      <label for="memo">Memo:</label>
+      <input type="text" name="memo" value="<?php echo htmlspecialchars($diskElement->memo ?? ''); ?>">
+      <br>
+      <input type="submit" value="Save">
+    </form>
+ 
+

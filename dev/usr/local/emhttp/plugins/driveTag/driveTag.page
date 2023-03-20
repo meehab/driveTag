@@ -1,7 +1,7 @@
 Menu="Utilities"
 Type="xmenu"
 Title="driveTag"
-Icon="floppy-disk-pen"
+Icon="pencil-square-o"
 Tabs="true"
 ---
 <?php include '/usr/local/emhttp/plugins/driveTag/scripts/styles.css';?>
